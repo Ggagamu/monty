@@ -12,6 +12,7 @@ int executeMontyCommands(FILE *file, stack_t **stack)
 	unsigned int line_number = 0;
 	ssize_t read_line;
 	size_t index;
+	char **token = NULL;
 
 	while ((read_line = getline(&line, &n, file)) != -1)
 	{
@@ -23,7 +24,7 @@ int executeMontyCommands(FILE *file, stack_t **stack)
 			continue;
 		if (read_line > 0 && line[read_line - 1] == '\n')
 			line[read_line - 1] = '\0';
-		token = tokenize(read_line);
+		token = tokenize(line);
 		if (token[0] != NULL)
 		{
 			executeMontyInstruction(token[0], stack, line_number);
