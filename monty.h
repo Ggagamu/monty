@@ -7,6 +7,8 @@
 #include <string.h>
 #include <ctype.h>
 
+#define STACK 0
+#define QUEUE 1
 #define DELIMITERS "\t\n\r\a "
 
 
@@ -68,5 +70,9 @@ void modulo(stack_t **stack, unsigned int line_number);
 void prntchar(stack_t **stack, unsigned int line_number);
 void prntstr(stack_t **stack, unsigned int line_number);
 char **tokenize(char *input);
+void m_rotl(stack_t **stack, unsigned int line_number);
+void m_rotr(stack_t **stack, unsigned int line_number);
+void m_queue(stack_t **stack, unsigned int line_number);
+void m_stack(stack_t **stack, unsigned int line_number);
 
 #endif

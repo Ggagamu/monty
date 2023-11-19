@@ -25,6 +25,10 @@ void executeMontyInstruction(char *opcode, stack_t **stack, unsigned int line_nu
 		{"mod", modulo},
 		{"pchar", prntchar},
 		{"pstr", prntstr},
+		{"rotl", m_rotl},
+		{"rotr", m_rotr},
+		{"stack", m_stack},
+		{"queue", m_queue},
 		{NULL, NULL}
 	};
 
