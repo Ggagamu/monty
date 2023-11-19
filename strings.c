@@ -30,7 +30,7 @@ char **splitString(char *line)
 	for (i = 0; strung != NULL; i++)
 	{
 		strungs[i] = strdup(strung);
-		if (strung[i] == '\0')
+		if (strung[i] == NULL)
 		{
 			fprintf(stderr, "Error: malloc failed\n");
 			exit(EXIT_FAILURE);
