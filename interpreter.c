@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	result = process(file, &stack);
+	result = executeMontyCommands(file, &stack);
 	fclose(file);
 	free_stack(stack);
 	return (result);

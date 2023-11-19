@@ -13,7 +13,7 @@ void plus(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n += (*stack)->n;
-	pop(stack, line_number);
+	PoP(stack, line_number);
 }
 
 /**
@@ -40,7 +40,7 @@ void minus(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n -= (*stack)->n;
-	pop(stack, line_number);
+	PoP(stack, line_number);
 }
 /**
  * by - Divides the second from the top
@@ -61,5 +61,5 @@ void by(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n /= (*stack)->n;
-	pop(stack, line_number);
+	PoP(stack, line_number);
 }

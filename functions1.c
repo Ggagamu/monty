@@ -13,7 +13,7 @@ void multiply(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n *= (*stack)->n;
-	pop(stack, line_number);
+	PoP(stack, line_number);
 }
 
 /**
@@ -34,7 +34,7 @@ void modulo(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n %= (*stack)->n;
-	pop(stack, line_number);
+	PoP(stack, line_number);
 }
 
 /**

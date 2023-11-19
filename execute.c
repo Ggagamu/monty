@@ -12,19 +12,19 @@ void executeMontyInstruction(char *opcode, stack_t **stack, unsigned int line_nu
 	int i;
 
 	instruction_t instructions[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"sub", sub},
-		{"div", divi},
-		{"mul", mult},
-		{"mod", modu},
-		{"pchar", pchar},
-		{"pstr", pstr},
+		{"push", pushInt},
+		{"pall", prntall},
+		{"pint", prntInt},
+		{"pop", PoP},
+		{"swap", SwaP},
+		{"add", plus},
+		{"nop", nope},
+		{"sub", minus},
+		{"div", by},
+		{"mul", multiply},
+		{"mod", modulo},
+		{"pchar", prntchar},
+		{"pstr", prntstr},
 		{NULL, NULL}
 	};
 
