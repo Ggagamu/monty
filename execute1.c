@@ -23,7 +23,7 @@ int executeMontyCommands(FILE *file, stack_t **stack)
 			continue;
 		if (read_line > 0 && line[read_line - 1] == '\n')
 			line[read_line - 1] = '\0';
-		/*token = tokenize(line);*/
+		token = splitString(line);
 		if (token[0] != NULL)
 		{
 			executeMontyInstruction(token[0], stack, line_number);
