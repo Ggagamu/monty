@@ -1,38 +1,14 @@
-#ifndef __MONTY_H__
-#define __MONTY_H__
+#ifndef MONTY_H
+#define MONTY_H
 
+#define _GNU_SOURCE
 #include <stdio.h>
-#include <string.h>
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <string.h>
 #include <ctype.h>
 
+#define DELIMITERS "\t\n\r\a "
 
-#define QUEUE 1
-#define STACK 0
-#define DELIM " \n\t\a\b"
-
-/**
- * LinkedListNode - struct with variable globals
- * @stringToken: integer
- * @prevNode: points to the previous element of the stack (or queue)
- * @lineBuffer: points to the next element of the stack (or queue)
- *
- * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
- */
-typedef struct LinkedListNode
-{
-	char *stringToken;
-	FILE *prevNode;
-	char *lineBuffer;
-
-} LinkedListNode_t;
-
-extern LinkedListNode_t globalNode;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -64,42 +40,34 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* main */
-int main(int argc, char **argv);
-
-/* node functions */
-stack_t *node_stackfirst(stack_t **stack, int n);
-stack_t *node_stackend(stack_t **stack, int n);
-void freee_node_stack(stack_t **stack);
-
-/* get_builtin */
-int get_builtin(char *token, stack_t **stack, unsigned int line_number);
-
-/* tasks functions */
-void push_m(stack_t **stack, unsigned int line_number);
-void pall_m(stack_t **stack, unsigned int line_number);
-void pop_m(stack_t **stack, unsigned int line_number);
-void add_m(stack_t **stack, unsigned int line_number);
-void nop_m(stack_t **stack, unsigned int line_number);
-void sub_m(stack_t **stack, unsigned int line_number);
-void pint_m(stack_t **stack, unsigned int line_number);
-void swap_m(stack_t **stack, unsigned int line_number);
-void pchar_m(stack_t **stack, unsigned int line_number);
-void mul_m(stack_t **stack, unsigned int line_number);
-void div_m(stack_t **stack, unsigned int line_number);
-void mod_m(stack_t **stack, unsigned int line_number);
-void pstr_m(stack_t **stack, unsigned int line_number);
-void rotrl_m(stack_t **stack, unsigned int line_number);
 
 
-/*error functions*/
-void stderr_usage(void);
-void stderr_malloc(void);
-void stderr_fopen(char *fd);
-void stderr_int(unsigned int line_number);
-void stderr_unknown(char *token, unsigned int line_number);
-void div_e(unsigned int line_number);
-void op_e(unsigned int line_number, char *op);
+/*GLOBAL VARIABLES*/
+char **token;
+
+
+
+/* TASKS FUNCTIONS */
+
+int executeMontyCommands(FILE *file, stack_t **stack);
+char **splitString(char *line);
+void executeMontyInstruction(char *opcode, stack_t **stack, unsigned int line_number);
+void free_token(char **token);
+void free_stack(stack_t *stack);
+void pushInt(stack_t **stack, unsigned int line_number);
+void prntall(stack_t **stack, unsigned int line_number);
+void prntInt(stack_t **stack, unsigned int line_number);
+void PoP(stack_t **stack, unsigned int line_number);
+void SwaP(stack_t **stack, unsigned int line_number);
+void plus(stack_t **stack, unsigned int line_number);
+void nope(stack_t **stack, unsigned int line_number);
+void minus(stack_t **stack, unsigned int line_number);
+void by(stack_t **stack, unsigned int line_number);
+void multiply(stack_t **stack, unsigned int line_number);
+void modulo(stack_t **stack, unsigned int line_number);
+void prntchar(stack_t **stack, unsigned int line_number);
+void prntstr(stack_t **stack, unsigned int line_number);
+
 
 
 #endif
